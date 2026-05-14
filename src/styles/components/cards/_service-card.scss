@@ -44,16 +44,4 @@
   }
 
   @include a.hover(scale, 1.1);
-
-  @include a.respond-to('md') {
-    width: 264px;
-  }
-
-  @include a.respond-to('lg') {
-    width: 214px;
-  }
-
-  @include a.respond-to('xl') {
-    width: 264px;
-  }
 }
