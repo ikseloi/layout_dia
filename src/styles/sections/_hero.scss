@@ -2,10 +2,13 @@
 
 .hero {
   --slider-max-width: 100%;
+  --top: -440px;
+  --margin-bottom: 110px;
 
   position: sticky;
-  top: 0;
+  top: var(--top);
 
+  margin-bottom: var(--margin-bottom);
   padding-top: 48px;
   border-bottom-right-radius: a.$br-main;
   border-bottom-left-radius: a.$br-main;
@@ -53,6 +56,8 @@
   }
 
   @include a.respond-to('md') {
+    --top: -470px;
+
     padding-top: 56px;
 
     &__wrapper {
@@ -74,6 +79,7 @@
   }
 
   @include a.respond-to('lg') {
+    --margin-bottom: 0;
     --slider-max-width: 502px;
 
     position: static;
