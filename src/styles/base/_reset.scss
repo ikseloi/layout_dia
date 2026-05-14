@@ -19,18 +19,18 @@ main {
 }
 
 h1 {
-  font-size: 2em;
   margin: 0.67em 0;
+  font-size: 2em;
 }
 
 hr {
-  box-sizing: content-box;
-  height: 0;
   overflow: visible;
+  height: 0;
+  box-sizing: content-box;
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 
@@ -54,7 +54,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 
@@ -73,6 +73,7 @@ sup {
 sub {
   bottom: -0.25em;
 }
+
 sup {
   top: -0.5em;
 }
@@ -98,6 +99,7 @@ button,
 input {
   overflow: visible;
 }
+
 button,
 select {
   text-transform: none;
@@ -121,7 +123,7 @@ button::-moz-focus-inner,
 }
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: 0.35em 0.75em 0.63em;
 }
 
 legend {
@@ -136,6 +138,7 @@ legend {
 progress {
   vertical-align: baseline;
 }
+
 textarea {
   overflow: auto;
 }
@@ -169,12 +172,15 @@ textarea {
 details {
   display: block;
 }
+
 summary {
   display: list-item;
 }
+
 template {
   display: none;
 }
+
 [hidden] {
   display: none;
 }
