@@ -1,0 +1,117 @@
+@use '../abstracts' as a;
+
+.hero {
+  --slider-max-width: 100%;
+
+  position: sticky;
+  top: 0;
+
+  padding-top: 48px;
+  border-bottom-right-radius: a.$br-main;
+  border-bottom-left-radius: a.$br-main;
+
+  color: a.$clr-white;
+
+  background-color: a.$clr-gray-dark;
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    max-width: 2560px;
+    margin-inline: auto;
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin: 0;
+
+    @include a.heading-hero;
+  }
+
+  &__description {
+    grid-column: 1/-1;
+    margin-top: 32px;
+
+    @include a.body-lg;
+
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  &__btn {
+    grid-column: 1/-1;
+    margin-top: 72px;
+  }
+
+  &__slider {
+    max-width: var(--slider-max-width);
+    height: 390px;
+  }
+
+  @include a.respond-to('md') {
+    padding-top: 56px;
+
+    &__wrapper {
+      gap: 147px;
+    }
+
+    &__title {
+      grid-column: 1/-1;
+    }
+
+    &__description {
+      grid-column: 1/5;
+      margin-top: 24px;
+    }
+
+    &__btn {
+      grid-column: 1/4;
+    }
+  }
+
+  @include a.respond-to('lg') {
+    --slider-max-width: 502px;
+
+    position: static;
+    padding-top: 48px;
+
+    &__title {
+      grid-column: span 5;
+      margin-top: -100px;
+    }
+
+    &__wrapper {
+      justify-content: center;
+      height: 680px;
+    }
+
+    &__slider {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 680px;
+    }
+
+    &__description {
+      grid-column: 1/6;
+      width: 362px;
+    }
+
+    &__btn {
+      grid-column: 1/5;
+      width: 264px;
+    }
+  }
+
+  @include a.respond-to('xl') {
+    --slider-max-width: 687px;
+  }
+
+  @include a.respond-to('2xl') {
+    --slider-max-width: 1167px;
+  }
+}

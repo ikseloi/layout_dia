@@ -1,0 +1,58 @@
+@use '../../abstracts' as a;
+
+.slider {
+  position: relative;
+  grid-column: span 2;
+
+  &__viewport {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  &__line {
+    will-change: transform;
+    display: flex;
+    height: 100%;
+    transition: transform 0.9s ease-in-out;
+  }
+
+  &__item {
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 390px;
+    border-radius: a.$br-main;
+
+    object-fit: cover;
+    background: a.$clr-gray-dark;
+  }
+
+  @include a.respond-to('md') {
+    &__overlay {
+      bottom: 32px;
+      left: 41px;
+    }
+  }
+
+  @include a.respond-to('lg') {
+    &__img {
+      height: 100%;
+      border-bottom-left-radius: 0;
+    }
+
+    &__overlay {
+      bottom: 48px;
+      left: 78px;
+    }
+  }
+
+  @include a.respond-to('2xl') {
+    &__overlay {
+      bottom: 66px;
+      left: 48px;
+    }
+  }
+}
