@@ -1,9 +1,6 @@
 @use '../../abstracts' as a;
 
 .slider {
-  position: relative;
-  grid-column: span 2;
-
   &__viewport {
     overflow: hidden;
     height: 100%;
@@ -25,9 +22,7 @@
     width: 100%;
     height: 390px;
     border-radius: a.$br-main;
-
     object-fit: cover;
-    background: a.$clr-gray-dark;
   }
 
   @include a.respond-to('md') {
@@ -40,6 +35,7 @@
   @include a.respond-to('lg') {
     &__img {
       height: 100%;
+      border-top-right-radius: 0;
       border-bottom-left-radius: 0;
     }
 

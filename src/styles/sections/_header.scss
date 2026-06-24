@@ -3,12 +3,13 @@
 .header {
   --display-nav: none;
   --display-btn: block;
-  --padding-top-header: 18px;
+  --padding-block: 18px 48px;
 
   position: relative;
   z-index: 5;
 
-  padding-top: var(--padding-top-header);
+  // padding-top: var(--padding-top-header);
+  padding-block: var(--padding-block);
 
   color: a.$clr-white;
 
@@ -59,7 +60,7 @@
   }
 
   @include a.respond-to('lg') {
-    --padding-top-header: 52px;
+    --padding-block: 52px 48px;
     --display-nav: block;
     --display-btn: none;
   }
