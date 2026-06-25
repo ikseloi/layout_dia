@@ -1,7 +1,0 @@
-@use '../../abstracts' as a;
-
-.section-label {
-  @include a.text-accent-uppercase;
-
-  color: a.$clr-blue-gray;
-}
