@@ -16,6 +16,8 @@
     border-radius: 8px;
     color: white;
     background-color: a.$clr-blue-accent;
+
+    @include a.hover(background-color, a.$clr-btn-hover);
   }
 
   &--cta {
