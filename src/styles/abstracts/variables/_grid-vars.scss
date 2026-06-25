@@ -40,3 +40,9 @@ $section-spacing-y: (
   'xl': 148px,
   '2xl': 148px,
 );
+
+:root {
+  @each $name, $value in $breakpoints {
+    --bp-#{$name}: #{$value};
+  }
+}

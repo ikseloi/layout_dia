@@ -1,15 +1,37 @@
 'use strict';
 
+const rootStyles = getComputedStyle(document.documentElement);
+const breakpoints = {
+  sm: parseInt(rootStyles.getPropertyValue('--bp-sm'), 10),
+  md: parseInt(rootStyles.getPropertyValue('--bp-md'), 10),
+  lg: parseInt(rootStyles.getPropertyValue('--bp-lg'), 10),
+  xl: parseInt(rootStyles.getPropertyValue('--bp-xl'), 10),
+  '2xl': parseInt(rootStyles.getPropertyValue('--bp-2xl'), 10),
+};
+
 const line = document.querySelector('.slider__line');
 const slides = document.querySelectorAll('.slider__item');
-const btnNext = document.querySelector('.slider__btn--right');
-const btnPrev = document.querySelector('.slider__btn--left');
+const listLength = slides.length;
+const nextBtn = document.querySelector('.slider__btn--right');
+const prevBtn = document.querySelector('.slider__btn--left');
 
-let count = 0; // current slide index
-let width; // width of one slide
+let index = 0;
+let slideWidth;
 
-const rollSlider = () => {
-  line.style.transform = `translateX(${-count * width}px)`;
+const rollSlider = (step = 0) => {
+  const prevIndex = index;
+  const nextIndex = (index + step + listLength) % listLength;
+
+  index = nextIndex;
+
+  if (window.innerWidth >= breakpoints.lg) {
+    line.style.transform = 'translateX(0)';
+  } else {
+    line.style.transform = `translateX(${-nextIndex * slideWidth}px)`;
+  }
+
+  slides[prevIndex].classList.remove('slider__item--active');
+  slides[nextIndex].classList.add('slider__item--active');
 };
 
 const init = () => {
@@ -19,10 +41,10 @@ const init = () => {
     return;
   }
 
-  width = viewport.offsetWidth;
+  slideWidth = viewport.offsetWidth;
 
   slides.forEach((item) => {
-    item.style.width = width + 'px';
+    item.style.width = slideWidth + 'px';
   });
 
   rollSlider();
@@ -31,18 +53,20 @@ const init = () => {
 window.addEventListener('resize', init);
 init();
 
-btnNext.addEventListener('click', () => {
-  count++;
-  if (count >= slides.length) {
-    count = 0; // return to the beginning
+nextBtn.addEventListener('click', () => {
+  console.log('test');
+
+  if (index >= slides.length) {
+    index = 0;
   }
-  rollSlider();
+  rollSlider(1);
 });
 
-btnPrev.addEventListener('click', () => {
-  count--;
-  if (count < 0) {
-    count = slides.length - 1; // go to the end
+prevBtn.addEventListener('click', () => {
+  console.log('test');
+
+  if (index < 0) {
+    index = slides.length - 1;
   }
-  rollSlider();
+  rollSlider(-1);
 });
